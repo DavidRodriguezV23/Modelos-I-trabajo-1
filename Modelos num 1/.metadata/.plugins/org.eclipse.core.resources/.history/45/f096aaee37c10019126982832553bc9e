@@ -1,0 +1,44 @@
+package logica;
+
+public class NissanZ370 extends Automovil{
+	
+	public NissanZ370() {
+		super("Nissan Z370", "Compacto", 2018, 331, 5, 7, 130000000, true);
+	}
+
+	@Override
+	public String arrancar() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String apagar() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String acelerar() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String girarIzq() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String girarDer() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String frenar() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

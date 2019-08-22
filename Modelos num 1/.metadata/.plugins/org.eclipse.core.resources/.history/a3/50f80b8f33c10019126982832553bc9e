@@ -1,0 +1,135 @@
+/*
+ * Descripción: Menu del programa
+ * Autores: David Armando Rodríguez Varón, Juan Sebastian Sanchez Tabares
+ * Fecha: 17/08/2019
+ */
+package vista;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import logica.Automovil;
+import logica.SparkGT;
+import logica.Liskov;
+
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import java.awt.Color;
+import javax.swing.ImageIcon;
+
+public class Menu extends JFrame {
+
+	private JPanel contentPane;
+	//Variable global
+	public static Automovil auto;
+	public static DetallesAuto detalles= new DetallesAuto();
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Menu frame = new Menu();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	public void verAuto(int caso) {
+		auto=Liskov.crearAutomovil(caso);
+		if(auto!=null) {
+			detalles.setVisible(true);
+			detalles.anadirInfo(auto);
+		}
+	}
+	
+	/**
+	 * Create the frame.
+	 */
+	public Menu() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBackground(Color.WHITE);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JButton btnSparkgt = new JButton("SparkGT");
+		btnSparkgt.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				verAuto(1);
+			}
+		});
+		btnSparkgt.setBounds(99, 188, 89, 23);
+		contentPane.add(btnSparkgt);
+		
+		JButton btnRenault = new JButton("Renault 4");
+		btnRenault.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				verAuto(2);
+			}
+		});
+		btnRenault.setBounds(222, 188, 89, 23);
+		contentPane.add(btnRenault);
+		
+		JLabel lblDavidArmandoRodrguez = new JLabel("David Armando Rodr\u00EDguez Var\u00F3n - 20181020041");
+		lblDavidArmandoRodrguez.setBounds(88, 21, 273, 14);
+		contentPane.add(lblDavidArmandoRodrguez);
+		
+		JLabel lblJuanSebastanSanchez = new JLabel("Juan Sebast\u00EDan Sanchez Tabares - 20181020008");
+		lblJuanSebastanSanchez.setBounds(88, 32, 321, 14);
+		contentPane.add(lblJuanSebastanSanchez);
+		
+		JLabel lblsustitucinDeLiskov = new JLabel("-Sustituci\u00F3n de Liskov.");
+		lblsustitucinDeLiskov.setOpaque(true);
+		lblsustitucinDeLiskov.setBounds(77, 97, 303, 14);
+		contentPane.add(lblsustitucinDeLiskov);
+		
+		JLabel lblopenClosed = new JLabel("-Open closed.");
+		lblopenClosed.setOpaque(true);
+		lblopenClosed.setBounds(77, 122, 303, 14);
+		contentPane.add(lblopenClosed);
+		
+		JLabel lblInversinDeDependencias = new JLabel("-Inversi\u00F3n de dependencias.");
+		lblInversinDeDependencias.setOpaque(true);
+		lblInversinDeDependencias.setBounds(77, 110, 303, 14);
+		contentPane.add(lblInversinDeDependencias);
+		
+		JLabel lbldryDontRepeat = new JLabel("\t-DRY, don't repeat yourself");
+		lbldryDontRepeat.setOpaque(true);
+		lbldryDontRepeat.setBounds(77, 147, 303, 14);
+		contentPane.add(lbldryDontRepeat);
+		
+		JLabel lblSingleResponsability = new JLabel("-Single responsability");
+		lblSingleResponsability.setOpaque(true);
+		lblSingleResponsability.setBounds(77, 135, 303, 14);
+		contentPane.add(lblSingleResponsability);
+		
+		JLabel lblParaLaRealización = new JLabel("Este programa cumple con los siguientes principios:");
+		lblParaLaRealización.setOpaque(true);
+		lblParaLaRealización.setBackground(Color.WHITE);
+		lblParaLaRealización.setBounds(77, 64, 303, 35);
+		contentPane.add(lblParaLaRealización);
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(Menu.class.getResource("/recursos/fondo2.jpg")));
+		label.setBounds(0, 0, 434, 262);
+		contentPane.add(label);
+		
+
+		setLocationRelativeTo(null);
+	}
+}

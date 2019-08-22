@@ -1,0 +1,7 @@
+package logica;
+
+public class NissanZ370 extends Automovil{
+	public NissanZ370() {
+		super("Chevrolet SparkGT", "Compacto", 2019, 80, 4, 5, 33990000, true);
+	}
+}
